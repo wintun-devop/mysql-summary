@@ -84,4 +84,8 @@ mysql_secure_installation
 ```
 semanage port -a -t mysqld_port_t -p tcp 3306
 ```
+### check sestatus related to port 3306
+```
+ sudo semanage port -l | grep 3306
+```
 

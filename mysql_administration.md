@@ -75,4 +75,13 @@ sudo systemctl start mysqld
 ```
 sudo grep 'temporary password' /var/log/mysqld.log
 ```
+### Mysql Secure Installation
+```
+mysql_secure_installation
+```
+
+#enable selinux permission (if necessary)
+```
+semanage port -a -t mysqld_port_t -p tcp 3306
+```
 

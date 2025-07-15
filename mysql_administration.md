@@ -33,3 +33,42 @@ mysqldump -u your_username -p your_database | gzip > your_database_backup.sql.gz
 ```
 gunzip < your_database_backup.sql.gz | mysql -u your_username -p your_database
 ```
+
+### Check Current Password Policy on mysql
+```
+SHOW VARIABLES LIKE 'validate_password%';
+```
+### Reset MySQL Root Password (Systemd Method)
+```
+sudo systemctl stop mysqld
+```
+```
+sudo systemctl set-environment MYSQLD_OPTS="--skip-grant-tables --skip-networking"
+```
+```
+sudo systemctl start mysqld
+```
+### Login without password
+```
+mysql -u root
+```
+```
+FLUSH PRIVILEGES;
+```
+```
+ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'YouStrongPasswordWithSpecialCharacter';;
+```
+```
+FLUSH PRIVILEGES;
+```
+### Restore normal startup
+```
+sudo systemctl stop mysqld
+```
+```
+sudo systemctl unset-environment MYSQLD_OPTS
+```
+```
+sudo systemctl start mysqld
+```
+

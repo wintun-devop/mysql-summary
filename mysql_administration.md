@@ -71,4 +71,8 @@ sudo systemctl unset-environment MYSQLD_OPTS
 ```
 sudo systemctl start mysqld
 ```
+### temporary password check
+```
+sudo grep 'temporary password' /var/log/mysqld.log
+```
 

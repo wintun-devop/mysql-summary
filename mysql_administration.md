@@ -89,3 +89,9 @@ semanage port -a -t mysqld_port_t -p tcp 3306
  sudo semanage port -l | grep 3306
 ```
 
+### mysql Remote Access
+- change bind-address = 0.0.0.0 from bind-address = 127.0.0.1
+```
+sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+```
+

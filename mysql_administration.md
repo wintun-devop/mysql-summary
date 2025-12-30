@@ -94,4 +94,7 @@ semanage port -a -t mysqld_port_t -p tcp 3306
 ```
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
+```
+sudo systemctl restart mysql
+```
 
